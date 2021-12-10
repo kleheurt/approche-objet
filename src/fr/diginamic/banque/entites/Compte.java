@@ -5,9 +5,9 @@ public class Compte {
 	private int numero;
 	private int solde; //en centimes
 	
-	public Compte(int numero, double solde) {
+	public Compte(int numero, int solde) {
 		this.numero = numero;
-		this.solde = numero;
+		this.solde = solde;
 	}
 	
 	public int getNumero() {
@@ -23,6 +23,9 @@ public class Compte {
 		this.solde = solde;
 	}
 	
-	
+	//en euros
+	public String toString() {
+		return "Compte n° : "+this.numero+"\nSolde : "+((double)this.solde/100)+"€";
+	}
 
 }
