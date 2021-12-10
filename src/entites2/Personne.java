@@ -14,6 +14,11 @@ public class Personne {
 		this.adresse = adresse;
 	}
 	
+	public void afficherMaj() {
+		String affichage = nom.toUpperCase() + " " +prenom.toUpperCase();
+		System.out.println(affichage);
+	}
+	
 	public String getNom() {
 		return nom;
 	}

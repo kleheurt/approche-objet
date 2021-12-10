@@ -9,8 +9,11 @@ public class TestPersonne {
 		AdressePostale addr1 = new AdressePostale(1, "rue de la Paix", 75001, "Paris");
 		AdressePostale addr2 = new AdressePostale(2, "Bd Malsherbes", 75002, "Paris");
 		Personne p1 = new Personne("Dupond", "Tintin", addr1);
-		Personne p2 = new Personne("Dupont", "Tintin", addr2);
-	
+		Personne p2 = new Personne("Dupont", "Milou", addr2);
+		
+		p1.getAdresse();
+		p1.setAdresse(addr2);
+		p1.afficherMaj();
 
 	}
 
