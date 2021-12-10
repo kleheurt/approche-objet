@@ -6,6 +6,13 @@ public class AdressePostale {
 	private String rue;
 	private int cp;
 	private String ville;
+	
+	public AdressePostale(int numero, String rue, int cp, String ville) {
+		this.numero = numero;
+		this.rue = rue;
+		this.cp = cp;
+		this.ville = ville;
+	}
 
 	public int getNumero() {
 		return numero;

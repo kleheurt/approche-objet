@@ -5,20 +5,12 @@ import entites2.Personne;
 public class TestPersonne {
 
 	public static void main(String[] args) {
-		Personne p1 = new Personne();
-		Personne p2 = new Personne();
-		AdressePostale addr1 = new AdressePostale();
-		AdressePostale addr2 = new AdressePostale();
-
-		p1.setAdresse(addr1);
-		p2.setAdresse(addr2);
 		
-		p1.setNom("Dupond");
-		p2.setNom("Dupont");
-
-		p1.setPrenom("Tintin");
-		p2.setPrenom("Milou");
-
+		AdressePostale addr1 = new AdressePostale(1, "rue de la Paix", 75001, "Paris");
+		AdressePostale addr2 = new AdressePostale(2, "Bd Malsherbes", 75002, "Paris");
+		Personne p1 = new Personne("Dupond", "Tintin", addr1);
+		Personne p2 = new Personne("Dupont", "Tintin", addr2);
+	
 
 	}
 

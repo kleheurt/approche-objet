@@ -6,8 +6,13 @@ public class Personne {
 	
 	private String nom;
 	private String prenom;
-	private AdressePostale addresse;
+	private AdressePostale adresse;
 	
+	public Personne(String nom, String prenom, AdressePostale adresse) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+	}
 	
 	public String getNom() {
 		return nom;
@@ -22,10 +27,10 @@ public class Personne {
 		this.prenom = prenom;
 	}
 	public AdressePostale getAdresse() {
-		return addresse;
+		return adresse;
 	}
 	public void setAdresse(AdressePostale addresse) {
-		this.addresse = addresse;
+		this.adresse = addresse;
 	}
 	
 
