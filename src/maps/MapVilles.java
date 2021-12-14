@@ -1,7 +1,8 @@
 package maps;
 
-import listes.Ville;
 import java.util.*;
+
+import listes.Ville;
 
 public class MapVilles {
 	

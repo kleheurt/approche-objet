@@ -1,4 +1,5 @@
-package listes;
+package tri;
+
 
 public class Ville implements Comparable<Ville> {
 	
@@ -23,9 +24,13 @@ public class Ville implements Comparable<Ville> {
 		this.habitants = habitants;
 	}
 	
-	@Override
-	// Ne concerne pas le TP Tri
-	// Comparaison mise en place pour trier les villes dans le TP 10 (et non le TP 13)
+//	@Override
+//	//comparaison alphabétique
+//	public int compareTo(Ville v) {
+//		return this.getNom().compareTo(v.getNom());
+//	}
+	
+	//comparaison par nombre d'habitants
 	public int compareTo(Ville v) {
 		return ((Integer)this.habitants).compareTo(v.getHabitants());
 	}
