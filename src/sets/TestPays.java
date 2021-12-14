@@ -48,7 +48,7 @@ public class TestPays {
 		
 		//plus petit pib total
 		Pays plusPetit = null;
-		val = plusGrand.getPibTotal();
+		val = Integer.MAX_VALUE;
 		it = hs.iterator();
 		while(it.hasNext()) {
 			Pays tmp = it.next();
