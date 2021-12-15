@@ -24,7 +24,7 @@ public class AppliRecensement {
 			  +" (9) Sortir\n";
 	}
 	
-	private static void menu(Scanner scan, France fr) {
+	private static void menu(Scanner scan, Pays fr) {
 		System.out.println(afficherOptions());
 		int choix = scan.nextInt();
 		scan.nextLine();
@@ -38,6 +38,8 @@ public class AppliRecensement {
 				System.out.println(fr.selectPopVille(s));
 			} catch (Exception e1) {
 				System.out.println("Collectivité locale introuvable.");
+				System.out.println("( Ville de Lyon : précisez 1er ou \033[3mN\033[0me Arrondissement )");
+
 			}
 			break;
 		case 2:
@@ -91,7 +93,7 @@ public class AppliRecensement {
 		menuIntermediaire(scan, fr);
 	}
 	
-	private static void menuIntermediaire(Scanner scan, France fr) {
+	private static void menuIntermediaire(Scanner scan, Pays fr) {
 		System.out.println("\n------------------------------------\n"
 				+ " (0) Retour au menu\n"
 				+ " (1) Quitter\n");
@@ -116,7 +118,7 @@ public class AppliRecensement {
 		}
 		
 		// création du traitement
-		France fr = new France(lines);
+		Pays fr = new Pays("FRANCE",lines);
 		
 		// Initialisation du scanner et boucle récursive
 		Scanner scan = new Scanner(System.in);

@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class France implements Collectivite {
+public class Pays implements Collectivite {
 
 	private ArrayList<Region> arr;
 	private int pop;
+	private String nom;
 
 	public void extraireLigne(String s) {
 		String[] tab = s.split(";");
@@ -170,7 +171,8 @@ public class France implements Collectivite {
 		return this.pop;
 	}
 
-	public France(List<String> villes) {
+	public Pays(String nom, List<String> villes) {
+		this.nom = nom;
 		villes.remove(0);
 		this.arr = new ArrayList<Region>();
 
@@ -183,7 +185,7 @@ public class France implements Collectivite {
 
 	@Override
 	public String getNom() {
-		return "FRANCE";
+		return nom;
 	}
 
 }
