@@ -51,7 +51,7 @@ public class France implements Collectivite {
 		return this.pop;
 	}
 	
-	public String selectPop(String nom, String plage) {
+	public String selectPop(String nom, String plage) throws Exception {
 		if(this.arr.get(0).getClass().getSimpleName().equals(plage)) {
 			for (Region region : arr) {
 				if(region.getNom().equals(nom)) return Integer.toString(region.getPop());
@@ -63,7 +63,7 @@ public class France implements Collectivite {
 				if(tmp != -1) return Integer.toString(tmp);
 			}
 		}
-		return "Collectivité locale introuvable.";
+		throw new Exception("Collectivité locale introuvable");
 	}
 	
 	public ArrayList<Ville> selectVilles(String nom, String plage) throws Exception{
@@ -79,20 +79,20 @@ public class France implements Collectivite {
 			}
 		}
 		
-		if(tmp.size() == 0) throw new Exception("Collectivité introuvable");
+		if(tmp.size() == 0) throw new Exception("Collectivité locale introuvable");
 		tmp.sort(null);
 		return tmp;
 	}
 	
-	public String selectPopRegion(String nom) {
+	public String selectPopRegion(String nom) throws Exception {
 		return this.selectPop(nom, "Region");
 	}
 	
-	public String selectPopDepartement(String nom) {
+	public String selectPopDepartement(String nom) throws Exception {
 		return this.selectPop(nom, "Departement");
 	}
 	
-	public String selectPopVille(String nom) {
+	public String selectPopVille(String nom) throws Exception {
 		return this.selectPop(nom, "Ville");
 	}
 	

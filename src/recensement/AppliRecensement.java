@@ -34,15 +34,27 @@ public class AppliRecensement {
 			return;
 		case 1 :
 			s = scan.nextLine();
-			System.out.println(fr.selectPopVille(s));
+			try {
+				System.out.println(fr.selectPopVille(s));
+			} catch (Exception e1) {
+				System.out.println("Collectivité locale introuvable.");
+			}
 			break;
 		case 2:
 			s = scan.nextLine();
-			System.out.println(fr.selectPopDepartement(s));
+			try {
+				System.out.println(fr.selectPopDepartement(s));
+			} catch (Exception e1) {
+				System.out.println("Collectivité locale introuvable.");
+			}
 			break;
 		case 3:
 			s = scan.nextLine();
-			System.out.println(fr.selectPopRegion(s));
+			try {
+				System.out.println(fr.selectPopRegion(s));
+			} catch (Exception e1) {
+				System.out.println("Collectivité locale introuvable.");
+			}
 			break;
 		case 4:
 			System.out.println(fr.afficher10Regions());
@@ -55,7 +67,7 @@ public class AppliRecensement {
 			try {
 				System.out.println(fr.afficher10VillesDept(s));
 			} catch (Exception e) {
-				System.out.println("Collectivité introuvable");
+				System.out.println("Collectivité locale introuvable.");
 			}
 			break;
 		case 7:
@@ -63,14 +75,14 @@ public class AppliRecensement {
 			try {
 				System.out.println(fr.afficher10VillesRegion(s));
 			} catch (Exception e) {
-				System.out.println("Collectivité introuvable");
+				System.out.println("Collectivité locale introuvable.");
 			}
 			break;
 		case 8:
 			try {
 				System.out.println(fr.afficher10VillesFrance());
 			} catch (Exception e) {
-				System.out.println("Collectivité introuvable");
+				System.out.println("Collectivité locale introuvable.");
 			}
 			break;
 		default:
@@ -84,9 +96,12 @@ public class AppliRecensement {
 				+ " (0) Retour au menu\n"
 				+ " (1) Quitter\n");
 		int choix = scan.nextInt();
-		if(choix == 0) menu(scan,fr);
-		else if(choix == 1) return;
-		else menuIntermediaire(scan,fr);
+		if(choix == 0) 
+			menu(scan,fr);
+		else if(choix == 1) 
+			return;
+		else 
+			menuIntermediaire(scan,fr);
 	}
 
 	public static void main(String[] args) {
@@ -102,8 +117,8 @@ public class AppliRecensement {
 		
 		// création du traitement
 		France fr = new France(lines);
-		List<Region> arr = fr.getFrance();
 		
+		// Initialisation du scanner et boucle récursive
 		Scanner scan = new Scanner(System.in);
 		menu(scan,fr);
 		scan.close();
