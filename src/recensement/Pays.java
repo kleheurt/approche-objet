@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Pays implements Collectivite {
+public class Pays implements Collectivite, TraitementRecensement {
 
 	private ArrayList<Region> arr;
 	private int pop;
@@ -85,16 +85,32 @@ public class Pays implements Collectivite {
 		return tmp;
 	}
 	
-	public String selectPopRegion(String nom) throws Exception {
-		return this.selectPop(nom, "Region");
+	@Override
+	public String selectPopRegion(String nom) {
+		try {
+			return this.selectPop(nom, "Region");
+		} catch (Exception e) {
+			return "Région introuvable";
+		}
 	}
 	
-	public String selectPopDepartement(String nom) throws Exception {
-		return this.selectPop(nom, "Departement");
+	@Override
+	public String selectPopDepartement(String nom) {
+		try {
+			return this.selectPop(nom, "Departement");
+		} catch (Exception e) {
+			return "Département introuvable";
+		}
 	}
 	
-	public String selectPopVille(String nom) throws Exception {
-		return this.selectPop(nom, "Ville");
+	@Override
+	public String selectPopVille(String nom) {
+		try {
+			return this.selectPop(nom, "Ville");
+		} catch (Exception e) {
+			return "Ville introuvable\n"
+					+"( Ville de Lyon : précisez 1er ou \033[3mN\033[0me Arrondissement )";
+		}
 	}
 	
 	public List<Ville> selectVilleFrance(int intervalle) throws Exception {
@@ -120,24 +136,41 @@ public class Pays implements Collectivite {
 		return arr.subList(len - (intervalle), len);
 	}
 	
+	@Override
 	public String afficher10Regions() {
 		return this.affichage(this.selectRegions(10));
 	}
 	
+	@Override
 	public String afficher10Departements() {
 		return this.affichage(this.selectDept(10));
 	}
 	
-	public String afficher10VillesFrance() throws Exception {
-		return this.affichage(this.selectVilleFrance(10));
+	@Override
+	public String afficher10VillesFrance() {
+		try {
+			return this.affichage(this.selectVilleFrance(10));
+		} catch (Exception e) {
+			return "Collectivité locale introuvable.";
+		}
 	}
 	
-	public String afficher10VillesRegion(String nom) throws Exception {
-		return this.affichage(this.selectVilleRegion(nom,10));
+	@Override
+	public String afficher10VillesRegion(String nom) {
+		try {
+			return this.affichage(this.selectVilleRegion(nom,10));
+		} catch (Exception e) {
+			return "Collectivité locale introuvable.";
+		}
 	}
 	
-	public String afficher10VillesDept(String nom) throws Exception {
-		return this.affichage(this.selectVilleDept(nom, 10));
+	@Override
+	public String afficher10VillesDept(String nom) {
+		try {
+			return this.affichage(this.selectVilleDept(nom, 10));
+		} catch (Exception e) {
+			return "Collectivité locale introuvable.";
+		}
 	}
 	 
 	

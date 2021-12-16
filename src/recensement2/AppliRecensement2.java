@@ -1,4 +1,4 @@
-package recensement;
+package recensement2;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class AppliRecensement {
+import recensement.Pays;
+import recensement.TraitementRecensement;
+
+public class AppliRecensement2 {
 	
 	private static String afficherOptions() {
 		return " *** Recensement France ****\n"
@@ -24,7 +27,7 @@ public class AppliRecensement {
 			  +" (9) Sortir\n";
 	}
 	
-	private static void menu(Scanner scan, Pays fr) {
+	private static void menu(Scanner scan, TraitementRecensement fr) {
 		System.out.println(afficherOptions());
 		int choix = scan.nextInt();
 		scan.nextLine();
@@ -34,7 +37,7 @@ public class AppliRecensement {
 			return;
 		case 1 :
 			s = scan.nextLine();
-				System.out.println(fr.selectPopVille(s));
+			System.out.println(fr.selectPopVille(s));
 			break;
 		case 2:
 			s = scan.nextLine();
@@ -56,7 +59,6 @@ public class AppliRecensement {
 			break;
 		case 7:
 			s = scan.nextLine();
-			System.out.println(fr.afficher10VillesRegion(s));
 			break;
 		case 8:
 			System.out.println(fr.afficher10VillesFrance());
@@ -67,7 +69,7 @@ public class AppliRecensement {
 		menuIntermediaire(scan, fr);
 	}
 	
-	private static void menuIntermediaire(Scanner scan, Pays fr) {
+	private static void menuIntermediaire(Scanner scan, TraitementRecensement fr) {
 		System.out.println("\n------------------------------------\n"
 				+ " (0) Retour au menu\n"
 				+ " (1) Quitter\n");
@@ -78,6 +80,19 @@ public class AppliRecensement {
 			return;
 		else 
 			menuIntermediaire(scan,fr);
+	}
+	
+	public static TraitementRecensement choixModele(Scanner scan, List<String> lines) {
+		System.out.println(" Choix du modèle de traitement :\n"
+				+" (0) modèle \"Objet\"\n"
+				+" (1) modèle \"TreeSet\"\n");
+		int choix = scan.nextInt();
+		if(choix == 0)
+			return new Pays("FRANCE", lines);
+		else if(choix == 1)
+			return new TraitementVilles(lines);
+		else
+			return choixModele(scan, lines);
 	}
 
 	public static void main(String[] args) {
@@ -91,11 +106,10 @@ public class AppliRecensement {
 			e.printStackTrace();
 		}
 		
-		// création du traitement
-		Pays fr = new Pays("FRANCE",lines);
-		
+				
 		// Initialisation du scanner et boucle récursive
 		Scanner scan = new Scanner(System.in);
+		TraitementRecensement fr = choixModele(scan,lines);
 		menu(scan,fr);
 		scan.close();
 		
