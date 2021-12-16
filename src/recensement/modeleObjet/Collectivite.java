@@ -1,4 +1,4 @@
-package recensement;
+package recensement.modeleObjet;
 
 public interface Collectivite {
 

@@ -3,9 +3,9 @@ package recensement;
 
 /** 
  * 
- * @author Kévin Le Heurt
+ * @author KÃ©vin Le Heurt
  *
- * Cette classe liste  les fonctions à impémenter au TP bonus 02 - Recensement
+ * Cette classe liste  les fonctions Ã  implÃ©menter au TP bonus 02 - Recensement
  */
 public interface TraitementRecensement {
 	
