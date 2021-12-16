@@ -30,6 +30,6 @@ Ce modèle rassemble toutes les collections dans une classe TraitementVille. Cel
 ComparaisonModeles.java mesure pour chaque modèle le temps d'exécution d'une sélection d'opérations. On constate un avantage au modèle "Objet" pour toutes les opérations testées, y compris l'affichage des 10 plus grandes villes du pays.
 
 # A faire
-Commenter.
-Faire relire/évaluer/corriger le code.
-Approfondir la comparaison des modèles pour comprendre la différence de performance.
+- Commenter.
+- Faire relire/évaluer/corriger le code.
+- Approfondir la comparaison des modèles pour comprendre la différence de performance.
