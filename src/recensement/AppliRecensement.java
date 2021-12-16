@@ -59,6 +59,7 @@ public class AppliRecensement {
 			break;
 		case 7:
 			s = scan.nextLine();
+			System.out.println(fr.afficher10VillesRegion(s));
 			break;
 		case 8:
 			System.out.println(fr.afficher10VillesFrance());

@@ -4,11 +4,13 @@ public class Ville implements Comparable<Ville> {
 	
 	private String nom;
 	private int habitants;
+	private Continent continent;
 	
-	public Ville(String nom, int habitants) {
+	public Ville(String nom, int habitants, Continent continent) {
 		super();
 		this.nom = nom;
 		this.habitants = habitants;
+		this.continent = continent;
 	}
 	public String getNom() {
 		return nom;
@@ -33,7 +35,17 @@ public class Ville implements Comparable<Ville> {
 	public boolean equals(Ville v) {
 		return this.nom.equals(v.getNom()) && ((Integer) this.habitants).equals(v.getHabitants());
 	}
+	public Continent getContinent() {
+		return continent;
+	}
+	public void setContinent(Continent continent) {
+		this.continent = continent;
+	}
 	
+	@Override
+	public String toString() {
+		return this.nom+" ("+this.continent.getLibelle()+") : "+this.habitants+" hab.";
+	}
 
 
 }

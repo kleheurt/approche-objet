@@ -66,7 +66,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 				if(tmp != -1) return Integer.toString(tmp);
 			}
 		}
-		throw new Exception("Collectivit� locale introuvable");
+		throw new Exception("Collectivité locale introuvable");
 	}
 	
 	public ArrayList<Ville> selectVilles(String nom, String plage) throws Exception{
@@ -82,7 +82,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 			}
 		}
 		
-		if(tmp.size() == 0) throw new Exception("Collectivit� locale introuvable");
+		if(tmp.size() == 0) throw new Exception("Collectivité locale introuvable");
 		tmp.sort(null);
 		return tmp;
 	}
@@ -92,7 +92,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 		try {
 			return this.selectPop(nom, "Region");
 		} catch (Exception e) {
-			return "R�gion introuvable";
+			return "Région introuvable";
 		}
 	}
 	
@@ -101,7 +101,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 		try {
 			return this.selectPop(nom, "Departement");
 		} catch (Exception e) {
-			return "D�partement introuvable";
+			return "Département introuvable";
 		}
 	}
 	
@@ -116,7 +116,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 	}
 	
 	public List<Ville> selectVilleFrance(int intervalle) throws Exception {
-		List<Ville> l = this.selectVilles("FRANCE", "France");
+		List<Ville> l = this.selectVilles("FRANCE", "Pays");
 		int len = l.size();
 		return l.subList(len - intervalle, len);
 	}
@@ -153,7 +153,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 		try {
 			return this.affichage(this.selectVilleFrance(10));
 		} catch (Exception e) {
-			return "Collectivit� locale introuvable.";
+			return "Collectivité locale introuvable.";
 		}
 	}
 	
@@ -162,7 +162,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 		try {
 			return this.affichage(this.selectVilleRegion(nom,10));
 		} catch (Exception e) {
-			return "Collectivit� locale introuvable.";
+			return "Collectivité locale introuvable.";
 		}
 	}
 	
@@ -171,7 +171,7 @@ public class Pays implements Collectivite, TraitementRecensement {
 		try {
 			return this.affichage(this.selectVilleDept(nom, 10));
 		} catch (Exception e) {
-			return "Collectivit� locale introuvable.";
+			return "Collectivité locale introuvable.";
 		}
 	}
 	 
