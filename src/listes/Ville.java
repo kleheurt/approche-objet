@@ -30,6 +30,10 @@ public class Ville implements Comparable<Ville> {
 		return ((Integer)this.habitants).compareTo(v.getHabitants());
 	}
 	
+	public boolean equals(Ville v) {
+		return this.nom.equals(v.getNom()) && ((Integer) this.habitants).equals(v.getHabitants());
+	}
+	
 
 
 }
