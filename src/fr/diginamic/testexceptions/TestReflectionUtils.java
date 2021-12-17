@@ -18,7 +18,13 @@ public class TestReflectionUtils {
 		
 		try {
 			ReflectionUtils.afficherAttributs(null);
-		} catch (IllegalArgumentException | IllegalAccessException | ReflectionException e) {
+		} catch (IllegalArgumentException | IllegalAccessException e) {
+			System.out.println("Autre exception !");
+			e.printStackTrace();
+			
+			
+		} catch(ReflectionException e) {
+			System.out.println("Reflection Exception !");
 			e.printStackTrace();
 		}
 
