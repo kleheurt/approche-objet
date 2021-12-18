@@ -1,8 +1,12 @@
 package sets;
 
+import annotations.ToString;
+
 public class Pays {
+	@ToString
 	private String nom;
 	private int habitants;
+	@ToString
 	private int pib;
 	
 	public String getNom() {
@@ -32,8 +36,9 @@ public class Pays {
 	
 	//approximation
 	public int getPibTotal() {
-		return (int)(this.habitants / 1000000) * this.pib;
+		return this.habitants / 1000000 * this.pib;
 	}
+	
 	
 	
 }
